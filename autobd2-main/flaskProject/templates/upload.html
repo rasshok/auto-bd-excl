@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Загрузка Excel файла</h1>
+<form method="POST" enctype="multipart/form-data" class="mt-4">
+  <div class="form-group">
+    <label for="file">Выберите Excel файл:</label>
+    <input type="file" class="form-control-file" id="file" name="file" accept=".xlsx" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Загрузить</button>
+</form>
+{% endblock %}

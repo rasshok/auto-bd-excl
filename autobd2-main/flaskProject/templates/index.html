@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center">
+  <h1>Заявки на ремонт автомобилей</h1>
+  <div>
+    <a class="btn btn-primary" href="{{ url_for('add_request') }}">Добавить новую заявку</a>
+    <a class="btn btn-secondary" href="{{ url_for('upload_file') }}">Загрузить Excel файл</a>
+  </div>
+</div>
+<table class="table table-striped mt-4">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Номер заявки</th>
+      <th>Дата добавления</th>
+      <th>Тип авто</th>
+      <th>Модель авто</th>
+      <th>Описание проблемы</th>
+      <th>ФИО клиента</th>
+      <th>Телефон</th>
+      <th>Статус</th>
+      <th>Механик</th>
+      <th>Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for request in requests %}
+    <tr>
+      <td>{{ request['id'] }}</td>
+      <td>{{ request['request_number'] }}</td>
+      <td>{{ request['date_added'] }}</td>
+      <td>{{ request['car_type'] }}</td>
+      <td>{{ request['car_model'] }}</td>
+      <td>{{ request['problem_description'] }}</td>
+      <td>{{ request['client_name'] }}</td>
+      <td>{{ request['phone_number'] }}</td>
+      <td>{{ request['status'] }}</td>
+      <td>{{ request['assigned_mechanic'] }}</td>
+      <td>
+        <a class="btn btn-sm btn-info" href="{{ url_for('edit_request', request_id=request['id']) }}">Edit</a>
+        <form action="{{ url_for('delete_request', request_id=request['id']) }}" method="post" style="display:inline;">
+          <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Редактировать заявку</h1>
+<form method="post" class="mt-4">
+  <div class="form-group">
+    <label for="request_number">Номер заявки:</label>
+    <input type="text" class="form-control" id="request_number" name="request_number" value="{{ request['request_number'] }}" required>
+  </div>
+  <div class="form-group">
+    <label for="date_added">Дата добавления:</label>
+    <input type="text" class="form-control" id="date_added" name="date_added" value="{{ request['date_added'] }}" required>
+  </div>
+  <div class="form-group">
+    <label for="car_type">Тип авто:</label>
+    <input type="text" class="form-control" id="car_type" name="car_type" value="{{ request['car_type'] }}" required>
+  </div>
+  <div class="form-group">
+    <label for="car_model">Модель авто:</label>
+    <input type="text" class="form-control" id="car_model" name="car_model" value="{{ request['car_model'] }}" required>
+  </div>
+  <div class="form-group">
+    <label for="problem_description">Описание проблемы:</label>
+    <input type="text" class="form-control" id="problem_description" name="problem_description" value="{{ request['problem_description'] }}" required>
+  </div>
+  <div class="form-group">
+    <label for="client_name">ФИО клиента:</label>
+    <input type="text" class="form-control" id="client_name" name="client_name" value="{{ request['client_name'] }}" required>
+  </div>
+  <div class="form-group">
+    <label for="phone_number">Телефон:</label>
+    <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ request['phone_number'] }}" required>
+  </div>
+  <div class="form-group">
+    <label for="status">Статус:</label>
+    <input type="text" class="form-control" id="status" name="status" value="{{ request['status'] }}" required>
+  </div>
+  <div class="form-group">
+    <label for="assigned_mechanic">Механик:</label>
+    <input type="text" class="form-control" id="assigned_mechanic" name="assigned_mechanic" value="{{ request['assigned_mechanic'] }}">
+  </div>
+  <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>
+{% endblock %}
